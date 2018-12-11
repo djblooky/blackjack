@@ -21,5 +21,10 @@ void Player::showHand()
 		
 }
 
+void Player::tallyHandTotal() //adds up cards in current hand
+{
+}
+
+int Player::getHandTotal() { return m_handTotal; }
 int Player::getUnits() { return m_units; }
 std::string Player::getName() { return m_name; }
