@@ -15,7 +15,7 @@ Player::~Player()
 
 void Player::showHand()
 {
-	for (std::vector<int>::const_iterator i = m_hand.begin(); i != m_hand.end(); ++i) { //iterates through vector
+	for (std::vector<Card>::const_iterator i = m_hand.begin(); i != m_hand.end(); ++i) { //iterates through vector
 		std::cout << *i << ' ';
 	}
 		

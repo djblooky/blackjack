@@ -1,7 +1,10 @@
 #pragma once
-#include "PLayer.h"
+#include "Player.h"
+#include <vector>
 class Deck
 {
+private:
+	std::vector<Card> m_deck;
 public:
 	Deck();
 	~Deck();
