@@ -10,10 +10,11 @@ private:
 	std::vector<Card> m_hand;
 	int m_handTotal;
 public:
-	Player(std::string name);
+	Player();
 	~Player();
 	int getUnits();
 	std::string getName();
+	void setName(std::string name);
 	void showHand();
 	void tallyHandTotal();
 	int getHandTotal();

@@ -3,9 +3,9 @@
 #include <string>
 #include <iostream>
 
-Player::Player(std::string name)
+Player::Player()
 {
-	m_name = name;
+	m_units = 100;
 }
 
 
@@ -15,16 +15,24 @@ Player::~Player()
 
 void Player::showHand()
 {
-	for (std::vector<Card>::const_iterator i = m_hand.begin(); i != m_hand.end(); ++i) { //iterates through vector
-		std::cout << *i << ' ';
+	for (auto &card : m_hand) {
+		std::cout << &card << "\t";
 	}
 		
 }
 
 void Player::tallyHandTotal() //adds up cards in current hand
 {
+	for (auto &card : m_hand) {
+		m_handTotal += &card.
+	}
 }
 
 int Player::getHandTotal() { return m_handTotal; }
 int Player::getUnits() { return m_units; }
 std::string Player::getName() { return m_name; }
+
+void Player::setName(std::string name)
+{
+	m_name = name;
+}

@@ -5,7 +5,10 @@
 class Game
 {
 private:
-	Deck deck;
+	Deck m_deck;
+	Player m_p1, m_p2, m_p3, m_p4;
+	std::vector<Player> m_players;
+
 public:
 	Game();
 	~Game();

@@ -1,12 +1,17 @@
 #pragma once
 class Card
 {
+private:
+	int m_value;
+	std::string m_name;
 public:
-	Card();
+	Card(std::string name, int value);
 	~Card();
 	int drawRandomCard();
 
-	enum suit {Diamond,Heart,Spade,Club};
-	enum value { Ace, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King };
+	int getValue();
+	void setValue(int value);
+	std::string getName();
+
 };
 

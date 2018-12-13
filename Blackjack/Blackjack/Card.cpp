@@ -3,8 +3,10 @@
 #include <random>
 
 
-Card::Card()
+Card::Card(std::string name, int value)
 {
+	m_name = name;
+	m_value = value;
 }
 
 
@@ -14,16 +16,22 @@ Card::~Card()
 
 int Card::drawRandomCard()
 {
-	value cardVal; //get random enum value
-
-	switch (cardVal) {
-		case Jack || Queen || King: return 10;
-			break;
-		case Ace: return 11;
-			break;
-		default: return cardVal;
-				break;
-	}
 
 	
 }
+
+int Card::getValue()
+{
+	return m_value;
+}
+
+void Card::setValue(int value)
+{
+	m_value = value;
+}
+
+std::string Card::getName()
+{
+	return m_name;
+}
+
