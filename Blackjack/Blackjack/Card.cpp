@@ -9,6 +9,11 @@ Card::Card(std::string name, int value)
 	m_value = value;
 }
 
+Card::Card()
+{
+
+}
+
 
 Card::~Card()
 {

@@ -6,6 +6,7 @@ private:
 	std::string m_name;
 public:
 	Card(std::string name, int value);
+	Card();
 	~Card();
 	int drawRandomCard();
 

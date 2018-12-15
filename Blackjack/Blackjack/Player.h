@@ -17,6 +17,7 @@ public:
 	void setName(std::string name);
 	void showHand();
 	void tallyHandTotal();
+	void addToHand(Card card);
 	int getHandTotal();
 };
 

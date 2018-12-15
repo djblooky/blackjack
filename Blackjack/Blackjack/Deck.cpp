@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "Deck.h"
+#include "Card.h"
+#include <random>
 
 
 Deck::Deck()
@@ -52,11 +54,16 @@ void Deck::deal(std::vector<Player> players) //gives one card to each player
 	}
 }
 
+void Deck::shuffle() //shuffles deck
+{
+	std::random_shuffle(m_deck.begin(), m_deck.end());
+}
+
 void Deck::hit(Player player) //gives 1 card to player
 {
-	//get random card from m_deck
-	//remove card from m_deck
-	//add card to player.m_hand
+	Card card = m_deck.back(); //get last card from m_deck
+	player.addToHand(card); //add card to player.m_hand
+	m_deck.pop_back(); //remove last card from m_deck
 }
 
 

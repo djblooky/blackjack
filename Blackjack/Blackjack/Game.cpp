@@ -17,6 +17,7 @@ Game::~Game()
 
 void Game::gameLoop()
 {
+	m_deck.shuffle();
 	m_deck.deal(m_players); 
 }
 
