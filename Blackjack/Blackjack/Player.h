@@ -1,23 +1,29 @@
 #pragma once
 #include <string>
-#include <vector>
+#include <random>
 #include "Card.h"
 class Player
 {
 private:
-	int m_units = 200;
+	unsigned int m_units = 200;
 	std::string m_name;
 	std::vector<Card> m_hand;
-	int m_handTotal;
+	unsigned int m_handTotal;
+	unsigned int m_difficulty;
+	unsigned int m_hitChance;
 public:
 	Player();
 	~Player();
 	int getUnits();
 	std::string getName();
 	void setName(std::string name);
+	int getHitChance();
 	void showHand();
 	void tallyHandTotal();
 	void addToHand(Card card);
+	void rollHitChance();
 	int getHandTotal();
+	int getDifficulty();
+	void setDifficulty(int difficulty);
 };
 

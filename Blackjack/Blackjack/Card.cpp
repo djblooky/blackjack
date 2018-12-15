@@ -19,12 +19,6 @@ Card::~Card()
 {
 }
 
-int Card::drawRandomCard()
-{
-
-	
-}
-
 int Card::getValue()
 {
 	return m_value;

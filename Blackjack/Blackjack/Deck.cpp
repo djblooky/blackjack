@@ -51,6 +51,7 @@ void Deck::deal(std::vector<Player> players) //gives one card to each player
 {
 	for (auto &player : players) { //for each player in players
 		hit(player);
+		hit(player); //hit twice for deal
 	}
 }
 
