@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 class Card
 {
 private:
@@ -7,7 +9,6 @@ private:
 public:
 	Card(std::string name, int value);
 	Card();
-	~Card();
 
 	int getValue();
 	void setValue(int value);

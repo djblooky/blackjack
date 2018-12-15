@@ -3,26 +3,22 @@
 #include <string>
 #include <iostream>
 #include <ctime>
+#include <random>
 
 Player::Player()
 {
-	m_units = 100;
+	m_units = 200;
 	m_difficulty = 1;
 
 	
 }
 
-
-Player::~Player()
+void Player::showHand(Player player)
 {
-}
-
-void Player::showHand()
-{
+	std::cout << player.getName() << "'s hand: ";
 	for (auto &card : m_hand) {
-		std::cout << &card << "\t";
-	}
-		
+		std::cout << &card.getName() << " ";
+	}	
 }
 
 void Player::tallyHandTotal() //adds up cards in current hand

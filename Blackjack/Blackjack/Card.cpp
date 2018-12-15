@@ -15,9 +15,7 @@ Card::Card()
 }
 
 
-Card::~Card()
-{
-}
+
 
 int Card::getValue()
 {

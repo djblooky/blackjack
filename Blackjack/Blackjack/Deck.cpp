@@ -4,6 +4,7 @@
 #include <random>
 
 
+
 Deck::Deck()
 {
 	
@@ -49,10 +50,10 @@ void Deck::createDeck() //adds 4 cards of each value to 52 card deck
 
 void Deck::deal(std::vector<Player> players) //gives one card to each player 
 {
-	for (auto &player : players) { //for each player in players
-		hit(player);
-		hit(player); //hit twice for deal
-	}
+		for(int i =0; i < 4; i++){
+			hit(players[i]);
+			hit(players[i]);
+		}
 }
 
 void Deck::shuffle() //shuffles deck
@@ -62,8 +63,7 @@ void Deck::shuffle() //shuffles deck
 
 void Deck::hit(Player player) //gives 1 card to player
 {
-	Card card = m_deck.back(); //get last card from m_deck
-	player.addToHand(card); //add card to player.m_hand
+	player.addToHand(m_deck.back()); //add last card to player.m_hand
 	m_deck.pop_back(); //remove last card from m_deck
 }
 
