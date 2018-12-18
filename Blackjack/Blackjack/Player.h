@@ -11,6 +11,7 @@ private:
 	unsigned int m_handTotal;
 	unsigned int m_difficulty;
 	unsigned int m_hitChance;
+	bool bust = false;
 public:
 	Player();
 	int getUnits();
@@ -21,6 +22,7 @@ public:
 	void tallyHandTotal();
 	void addToHand(Card card);
 	void rollHitChance();
+	void bet(unsigned int units);
 	int getHandTotal();
 	int getDifficulty();
 	void setDifficulty(int difficulty);

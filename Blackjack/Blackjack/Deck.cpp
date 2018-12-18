@@ -2,17 +2,8 @@
 #include "Deck.h"
 #include "Card.h"
 #include <random>
+#include <ctime>
 
-
-
-Deck::Deck()
-{
-	
-}
-
-Deck::~Deck()
-{
-}
 
 void Deck::createDeck() //adds 4 cards of each value to 52 card deck
 {
@@ -58,6 +49,7 @@ void Deck::deal(std::vector<Player> &players) //gives one card to each player
 
 void Deck::shuffle() //shuffles deck
 {
+	srand(time(NULL));
 	std::random_shuffle(m_deck.begin(), m_deck.end());
 }
 

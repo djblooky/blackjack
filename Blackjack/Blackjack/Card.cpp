@@ -9,13 +9,6 @@ Card::Card(std::string name, int value)
 	m_value = value;
 }
 
-Card::Card()
-{
-
-}
-
-
-
 
 int Card::getValue()
 {
