@@ -15,6 +15,7 @@ public:
 	Game();
 	void gameLoop();
 	void placeBets(unsigned int units);
+	void playTurns();
 	void beginGame();
 	void displayStats();
 	void turn(Player &player);
