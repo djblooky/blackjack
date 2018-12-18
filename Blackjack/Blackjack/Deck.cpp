@@ -48,7 +48,7 @@ void Deck::createDeck() //adds 4 cards of each value to 52 card deck
 	
 }
 
-void Deck::deal(std::vector<Player> players) //gives one card to each player 
+void Deck::deal(std::vector<Player> &players) //gives one card to each player 
 {
 		for(int i =0; i < 4; i++){
 			hit(players[i]);
@@ -61,9 +61,10 @@ void Deck::shuffle() //shuffles deck
 	std::random_shuffle(m_deck.begin(), m_deck.end());
 }
 
-void Deck::hit(Player player) //gives 1 card to player
+void Deck::hit(Player &player) //gives 1 card to player
 {
-	player.addToHand(m_deck.back()); //add last card to player.m_hand
+	Card card = m_deck.back();
+	player.addToHand(card); //add last card to player.m_hand
 	m_deck.pop_back(); //remove last card from m_deck
 }
 

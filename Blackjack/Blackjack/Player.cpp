@@ -17,8 +17,9 @@ void Player::showHand(Player player)
 {
 	std::cout << player.getName() << "'s hand: ";
 	for (auto &card : m_hand) {
-		std::cout << &card.getName() << " ";
+		std::cout << card.getName() << " ";
 	}	
+	std::cout << std::endl;
 }
 
 void Player::tallyHandTotal() //adds up cards in current hand

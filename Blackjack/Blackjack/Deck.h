@@ -9,8 +9,8 @@ public:
 	Deck();
 	~Deck();
 	void createDeck();
-	void deal(std::vector<Player> players);
+	void deal(std::vector<Player> &players);
 	void shuffle();
-	void hit(Player player);
+	void hit(Player &player);
 };
 

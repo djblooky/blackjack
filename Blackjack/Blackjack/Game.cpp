@@ -32,6 +32,7 @@ void Game::gameLoop()
 		//all players bet 10 units
 		m_deck.deal(m_players);
 		displayHands();
+		break;
 
 		//while no players have 21 and all players havent busted, checkRoundWinner = false and checkRoundBust = false
 			// if player hasnt busted, turn
