@@ -46,9 +46,11 @@ void Deck::emptyDeck()
 
 void Deck::deal(std::vector<Player> &players) //gives one card to each player 
 {
-		for(int i =0; i < 4; i++){
+	int i = 0;
+		for(auto &player: players){
 			hit(players[i]);
 			hit(players[i]);
+			i++;
 		}
 }
 

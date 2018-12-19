@@ -18,6 +18,7 @@ public:
 	void showHand();
 	int getUnits();
 	void addUnits(unsigned int units);
+	void lessUnits(unsigned int units);
 	std::string getName();
 	void setName(std::string name);
 	bool getBust();

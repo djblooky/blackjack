@@ -8,7 +8,7 @@
 
 Player::Player()
 {
-	m_units = 200;
+	m_units = 10;
 	m_difficulty = 1;
 }
 
@@ -107,6 +107,7 @@ int Player::getDifficulty(){return m_difficulty;}
 void Player::setDifficulty(int difficulty) { m_difficulty = difficulty; }
 int Player::getUnits() { return m_units; }
 void Player::addUnits(unsigned int units) { m_units += units; }
+void Player::lessUnits(unsigned int units) { m_units -= units; }
 std::string Player::getName() { return m_name; }
 void Player::setName(std::string name){	m_name = name;}
 bool Player::getBust() { return m_bust; }
