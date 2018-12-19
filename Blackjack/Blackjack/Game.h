@@ -11,19 +11,19 @@ private:
 	bool m_winner = false;
 	bool m_roundwinner = false;
 	unsigned int m_unitPot = 0;
-	unsigned int round = 1;
+	unsigned int m_round = 1;
 public:
 	Game();
 	void gameLoop();
 	void resetRound();
-	void checkIfRoundWon();
-	void bustCheck();
+	void assignRoundWinner();
+	void bustCheck(Player & player);
 	void naturalCheck();
 	void awardPot();
 	void placeBets(unsigned int units);
 	void playTurns();
 	void beginGame();
-	void displayStats();
+	void displayStats(bool reveal);
 	void turn(Player &player);
 	void checkIfOut(Player player);
 	void removePlayer(Player &player);
