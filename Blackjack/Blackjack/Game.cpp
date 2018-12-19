@@ -175,7 +175,8 @@ void Game::turn(Player &player)
 			player.tallyHandTotal();
 			bustCheck(player);
 		}
-		std::cout << "\t" << player.getName() << " stands!" << std::endl;
+		if(player.getBust() == false)
+			std::cout << "\t" << player.getName() << " stands!" << std::endl;
 	}
 
 	checkIfOut(player); //checks if player still has units
@@ -193,11 +194,12 @@ void Game::placeBets(unsigned int units)
 
 void Game::playTurns()
 {
-		for (auto &player : m_players) {
-			if (player.getBust() == false) { //if not busted
-				std::cout << "\n\t" << player.getName() << "'s turn!" << std::endl;
+	
+	for (int i = 0; i < m_players.size(); ++i) {
+			if (m_players[i].getBust() == false) { //if not busted
+				std::cout << "\n\t" << m_players[i].getName() << "'s turn!" << std::endl;
 				Sleep(2000);
-				turn(player);
+				turn(m_players[i]);
 			}
 		}
 }
