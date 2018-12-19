@@ -39,6 +39,11 @@ void Deck::createDeck() //adds 4 cards of each value to 52 card deck
 	
 }
 
+void Deck::emptyDeck()
+{
+	m_deck.clear();
+}
+
 void Deck::deal(std::vector<Player> &players) //gives one card to each player 
 {
 		for(int i =0; i < 4; i++){

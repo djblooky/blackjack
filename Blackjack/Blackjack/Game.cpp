@@ -23,27 +23,87 @@ void Game::gameLoop()
 {
 	beginGame();
 	while (!m_winner) { //while no one has won the game yet
-		
+		m_roundwinner = false;
 		m_deck.deal(m_players); //deal 2 cards to each player
 		placeBets(10); //each player bets 10 units
-		
+		naturalCheck(); //check for natural 21
 		while (!m_roundwinner) { //no one has won the round yet
-			Sleep(1000);
 			displayStats(); //show players' units and hands
-			//check for naturals, if so assign round winner(s)
-			playTurns();
-			
-			//when round is over: reset hands to 0, empty deck then recreate deck, shuffle deck
+			Sleep(3000);
+			playTurns(); //add math for aces to turn method!
+			bustCheck();
+
+			//if last player standing, assign winner
+			checkIfRoundWon();
 		}
+		resetRound();
+	}
+}
 
-		
-		//while no players have 21 and all players havent busted, checkRoundWinner = false and checkRoundBust = false
-			// if player hasnt busted, turn
-
-		//if last player standing roundwinner = true
-		//
+void Game::resetRound()
+{
+	for (auto &player : m_players) {
+		player.setBust(false);
+		player.clearHand();
 	}
 	
+	m_deck.emptyDeck();
+	m_deck.createDeck();
+	m_deck.shuffle();
+}
+
+void Game::checkIfRoundWon()
+{
+	if (m_roundwinner == true) {
+		awardPot();	//check for winners and award money
+	}
+}
+
+void Game::bustCheck() //sees if any player has busted
+{
+	for (auto &player : m_players) {
+		player.tallyHandTotal(); //add up all card values in each hand
+		if (player.getHandTotal() > 21) {
+		std::cout << "\n\t" << player.getName() << " has busted!" << std::endl;
+		player.setBust(true);
+		}
+	}
+	
+}
+ 
+void Game::naturalCheck()
+{	
+	for(auto &player: m_players){
+		player.tallyHandTotal();
+		if (player.getHandTotal() == 21) {
+			std::cout << "\n\t" << player.getName() << " has a blackjack!" << std::endl;
+			m_roundwinner = true;
+			player.setRoundWon(true); //assign player as a winner
+		}	
+	}
+
+	checkIfRoundWon();
+}
+
+void Game::awardPot()
+{
+	std::vector<Player> winners;
+	unsigned int winnerCount = 0;
+
+	for (auto &player : m_players) {
+		if (player.getRoundWon() == true) { //if player is a winner
+			winners.push_back(player); //add player to winners vector
+			winnerCount++;
+		}
+	}
+
+	unsigned int award = m_unitPot / winnerCount; //award each winner even amount of units
+	m_unitPot = 0; //pot is empty
+
+	for (auto &winner : winners) { //give each winner the award
+		winner.addUnits(award);
+		winner.setRoundWon(false); //player is no longer a winner
+	}
 }
 
 void Game::turn(Player &player)
@@ -97,7 +157,9 @@ void Game::placeBets(unsigned int units)
 void Game::playTurns()
 {
 	for (auto &player : m_players) {
-		turn(player);
+		if (player.getBust() == false) { //if not busted
+			turn(player);
+		}
 	}
 }
 
@@ -119,6 +181,9 @@ void Game::displayStats()
 	std::cout << std::endl;
 	for (auto &player : m_players) { //for each player
 		player.showHand(player); //show player's hand
+		if (player.getBust() == true) {
+			std::cout << "\t" << "Busted!";
+		}
 		std::cout << "\t" << player.getUnits() << " units" << std::endl;
 	}
 }
@@ -131,7 +196,7 @@ void Game::checkIfOut(Player player)
 	}
 }
 
-void Game::removePlayer(Player &player)
+void Game::removePlayer(Player &player) //removes player from game (m_players vector) 
 {
 	int i = 0; // index 0
 	for (auto &p : m_players) //go through m_players 

@@ -21,8 +21,14 @@ void Player::showHand(Player player)
 	std::cout << std::endl;
 }
 
+void Player::clearHand() 
+{
+	m_hand.clear();
+}
+
 void Player::tallyHandTotal() //adds up cards in current hand
 {
+	m_handTotal = 0;
 	for (auto &card : m_hand) {
 		m_handTotal += card.getValue();
 	}
@@ -61,6 +67,11 @@ int Player::getHandTotal() { return m_handTotal; }
 int Player::getDifficulty(){return m_difficulty;}
 void Player::setDifficulty(int difficulty) { m_difficulty = difficulty; }
 int Player::getUnits() { return m_units; }
+void Player::addUnits(unsigned int units) { m_units += units; }
 std::string Player::getName() { return m_name; }
 void Player::setName(std::string name){	m_name = name;}
 int Player::getHitChance() { return m_hitChance; }
+bool Player::getBust() { return m_bust; }
+void Player::setBust(bool bust) { m_bust = bust; }
+bool Player::getRoundWon() { return m_roundWon; }
+void Player::setRoundWon(bool won) { m_roundWon = won; }
